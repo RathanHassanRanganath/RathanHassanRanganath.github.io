@@ -102,7 +102,7 @@
 <section class="hero" id="about">
   <div class="hero-grid">
     <div class="hero-left">
-      <div class="badge">OPEN TO OPPORTUNITIES IN GERMANY</div>
+      <div class="badge">AVAILABLE FOR WERKSTUDENT & PRAKTIKANT ROLES</div>
       <h1>Rathan Hassan<span>Ranganath</span></h1>
       <p class="subtitle">M.Sc. Power Engineering · BTU Cottbus-Senftenberg</p>
       <p class="subtitle">I simulate how Germany's power grid handles the Energiewende — EV charging, solar PV, BESS storage and grid integration. Two real engineering studies built from scratch using the same tools German DSOs and PV planners use daily.</p>
@@ -282,8 +282,12 @@
   var N = 60;
   // build a smooth-ish daily voltage profile (values in pu, mapped to y)
   for (var i=0;i<=N;i++){
-    var t = i/N;
-    var base = 1.0 + 0.03*Math.sin(t*Math.PI*2 - 0.6) - 0.015*Math.sin(t*Math.PI*4);
+    var t = i/N; // 0..1 across the day
+    // gentle rise to a broad mid-upper peak (~t=0.45), soft dip, then a small rise near the end
+    var base = 1.0
+      + 0.018*Math.sin((t*1.15 + 0.12)*Math.PI)      // broad main hump peaking mid-upper
+      - 0.006*Math.cos(t*Math.PI*2 + 0.4)            // soft dip on the way down
+      + 0.004*Math.sin((t*3.0 + 1.0)*Math.PI);       // small rise/wobble toward the end
     pts.push(base);
   }
   var path = document.getElementById('voltPath');
@@ -309,7 +313,7 @@
     dot.setAttribute('cx', x.toFixed(1));
     dot.setAttribute('cy', y.toFixed(1));
     vread.textContent = 'V = ' + v.toFixed(4) + ' pu';
-  }, 200);
+  }, 55);
 })();
 </script>
 </body>

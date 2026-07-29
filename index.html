@@ -56,7 +56,27 @@
   .contact-links { display: flex; flex-wrap: wrap; gap: 14px; }
   .contact-links a, .contact-links span.phone { display: inline-flex; align-items: center; gap: 8px; background: var(--card); border: 1px solid var(--border); color: var(--text); padding: 12px 18px; border-radius: 8px; text-decoration: none; font-size: 0.95em; }
   .contact-links a:hover { border-color: var(--accent); color: var(--accent); }
+  .hero-grid { display: grid; grid-template-columns: 1.1fr 1fr; gap: 40px; align-items: center; }
+  .hero-left h1 { font-size: 2.8em; line-height: 1.1; margin-bottom: 10px; }
+  .hero-left h1 span { color: var(--accent); display: block; }
+  .sim-card { background: var(--bg-alt); border: 1px solid var(--border); border-radius: 14px; padding: 22px; }
+  .sim-head { display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px; }
+  .sim-head .title { font-size: 0.95em; font-weight: 600; }
+  .sim-head .live { color: #22c55e; font-size: 0.8em; display: inline-flex; align-items: center; gap: 6px; }
+  .sim-head .live .dot { width: 8px; height: 8px; border-radius: 50%; background: #22c55e; animation: pulse 1.5s infinite; }
+  @keyframes pulse { 0%,100% { opacity: 1; } 50% { opacity: 0.3; } }
+  .sim-chart { position: relative; height: 150px; }
+  .sim-chart svg { width: 100%; height: 100%; overflow: visible; }
+  .sim-foot { display: flex; justify-content: space-between; align-items: center; margin-top: 10px; font-family: monospace; font-size: 0.8em; color: var(--text-dim); }
+  .sim-foot .vread { color: var(--accent); background: var(--card); padding: 4px 12px; border-radius: 8px; border: 1px solid var(--border); }
+  .stat-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin-top: 16px; }
+  .stat-row .stat { background: var(--bg-alt); border: 1px solid var(--border); border-radius: 12px; padding: 16px; text-align: center; }
+  .stat-row .stat .big { font-size: 1.6em; font-weight: 700; color: var(--accent); }
+  .stat-row .stat .lbl { font-size: 0.75em; color: var(--text-dim); }
   @media (max-width: 700px) {
+    .hero-grid { grid-template-columns: 1fr; }
+    .stat-row { grid-template-columns: 1fr; }
+
     .grid-2 { grid-template-columns: 1fr; }
     header { flex-direction: column; gap: 10px; padding: 15px 20px; }
     nav a { margin: 0 10px; }
@@ -80,20 +100,49 @@
 </header>
 
 <section class="hero" id="about">
-  <div class="badge">OPEN TO OPPORTUNITIES IN GERMANY</div>
-  <h1>Rathan Hassan<span>Ranganath</span></h1>
-  <p class="subtitle">M.Sc. Electrical Power Engineering · BTU Cottbus-Senftenberg</p>
-  <p class="subtitle">I'm a Master's student in Power Engineering at BTU Cottbus, with a Bachelor's in Mechanical Engineering and one year of professional experience in renewable energy. My interests sit at the intersection of battery storage and combined PV-storage systems — both the technical design side and the economics. I enjoy building models in Excel and Python, and my current coursework in energy storage systems and grid integration keeps me close to real industry problems. I like working independently and in a structured way, turning analysis into recommendations people can actually act on.</p>
-  <a href="#projects" class="btn">View My Projects</a>
-  <a href="#contact" class="btn outline">Contact Me</a>
-  <div class="hero-badges">
-    <span class="pill">⚡ Grid Integration</span>
-    <span class="pill">☀️ PV System Design</span>
-    <span class="pill">🔋 BESS</span>
-    <span class="pill">📊 EMS</span>
-    <span class="pill">🐍 Python</span>
-    <span class="pill">🇩🇪 Deutsch B1-B2</span>
-    <span class="pill">🇬🇧 Englisch C1</span>
+  <div class="hero-grid">
+    <div class="hero-left">
+      <div class="badge">OPEN TO OPPORTUNITIES IN GERMANY</div>
+      <h1>Rathan Hassan<span>Ranganath</span></h1>
+      <p class="subtitle">M.Sc. Power Engineering · BTU Cottbus-Senftenberg</p>
+      <p class="subtitle">I simulate how Germany's power grid handles the Energiewende — EV charging, solar PV, BESS storage and grid integration. Two real engineering studies built from scratch using the same tools German DSOs and PV planners use daily.</p>
+      <a href="#projects" class="btn">View My Projects</a>
+      <a href="#contact" class="btn outline">Contact Me</a>
+      <div class="hero-badges">
+        <span class="pill">⚡ Grid Integration</span>
+        <span class="pill">☀️ PV System Design</span>
+        <span class="pill">🔋 BESS</span>
+        <span class="pill">📊 EMS</span>
+        <span class="pill">🐍 Python</span>
+        <span class="pill">🇩🇪 Deutsch B1-B2</span>
+        <span class="pill">🇬🇧 Englisch C1</span>
+      </div>
+    </div>
+    <div class="hero-right">
+      <div class="sim-card">
+        <div class="sim-head">
+          <span class="title">Live Voltage Simulation · German LV Feeder</span>
+          <span class="live"><span class="dot"></span>LIVE</span>
+        </div>
+        <div class="sim-chart">
+          <svg viewBox="0 0 400 150" preserveAspectRatio="none">
+            <line x1="0" y1="120" x2="400" y2="120" stroke="#ef4444" stroke-dasharray="4 4" stroke-width="1" opacity="0.5"/>
+            <path id="voltPath" fill="none" stroke="var(--accent)" stroke-width="2.5"/>
+            <circle id="voltDot" r="5" fill="#22c55e"/>
+          </svg>
+        </div>
+        <div class="sim-foot">
+          <span>00:00</span>
+          <span class="vread" id="vRead">V = 1.000 pu</span>
+          <span>23:00</span>
+        </div>
+      </div>
+      <div class="stat-row">
+        <div class="stat"><div class="big">2</div><div class="lbl">Grid Studies</div></div>
+        <div class="stat"><div class="big">24h</div><div class="lbl">Time-Series</div></div>
+        <div class="stat"><div class="big">B1-B2</div><div class="lbl">Deutsch<br>C1 Englisch</div></div>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -226,5 +275,42 @@
   <a href="https://github.com/RathanHassanRanganath" target="_blank">GitHub</a>
 </footer>
 
+
+<script>
+(function(){
+  var pts = [];
+  var N = 60;
+  // build a smooth-ish daily voltage profile (values in pu, mapped to y)
+  for (var i=0;i<=N;i++){
+    var t = i/N;
+    var base = 1.0 + 0.03*Math.sin(t*Math.PI*2 - 0.6) - 0.015*Math.sin(t*Math.PI*4);
+    pts.push(base);
+  }
+  var path = document.getElementById('voltPath');
+  var dot = document.getElementById('voltDot');
+  var vread = document.getElementById('vRead');
+  if(!path) return;
+  function yFor(v){ // 0.95 pu -> y140, 1.05 pu -> y10
+    return 140 - (v - 0.95) / (0.10) * 130;
+  }
+  var d = '';
+  for (var i=0;i<pts.length;i++){
+    var x = i/(pts.length-1)*400;
+    var y = yFor(pts[i]);
+    d += (i===0?'M':'L') + x.toFixed(1) + ' ' + y.toFixed(1) + ' ';
+  }
+  path.setAttribute('d', d);
+  var idx = 0;
+  setInterval(function(){
+    idx = (idx+1) % pts.length;
+    var x = idx/(pts.length-1)*400;
+    var v = pts[idx];
+    var y = yFor(v);
+    dot.setAttribute('cx', x.toFixed(1));
+    dot.setAttribute('cy', y.toFixed(1));
+    vread.textContent = 'V = ' + v.toFixed(4) + ' pu';
+  }, 200);
+})();
+</script>
 </body>
 </html>

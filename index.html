@@ -89,7 +89,21 @@
   .info-side .info-card .k { color: var(--accent); font-size: 0.72em; letter-spacing: 1px; text-transform: uppercase; margin-bottom: 6px; }
   .info-side .info-card .v1 { font-weight: 700; font-size: 1.02em; }
   .info-side .info-card .v2 { color: var(--text-dim); font-size: 0.9em; }
+  .edu-head { font-size: 2.4em; line-height: 1.1; margin-bottom: 18px; }
+  .edu-head span { color: var(--accent); }
+  .edu-intro { color: var(--text-dim); max-width: 620px; margin-bottom: 40px; }
+  .edu-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; }
+  .edu-card { background: var(--card); border: 1px solid var(--border); border-radius: 14px; padding: 30px; }
+  .edu-card .icon { font-size: 1.8em; margin-bottom: 18px; }
+  .edu-card h3 { font-size: 1.25em; margin-bottom: 6px; }
+  .edu-card .school { color: var(--accent); font-weight: 600; margin-bottom: 4px; }
+  .edu-card .when { color: var(--text-dim); font-size: 0.9em; margin-bottom: 16px; }
+  .edu-card .desc { color: var(--text-dim); margin-bottom: 18px; }
+  .edu-card .topics { display: flex; flex-wrap: wrap; gap: 8px; }
+  .edu-card .topics span { background: rgba(59,130,246,0.12); color: var(--accent); border: 1px solid rgba(59,130,246,0.3); padding: 6px 12px; border-radius: 16px; font-size: 0.82em; }
   @media (max-width: 700px) {
+    .edu-grid { grid-template-columns: 1fr; }
+
     .avail-grid { grid-template-columns: 1fr; }
     .about-grid { grid-template-columns: 1fr; }
 
@@ -231,23 +245,38 @@
 </section>
 
 <section id="education">
-  <h2 class="section-title">Education</h2>
-  <p class="section-sub">From mechanical engineering fundamentals in India to specialized power engineering in Germany.</p>
-  <div class="card">
-    <h3>M.Sc. Electrical Power Engineering</h3>
-    <div class="meta">Brandenburg University of Technology Cottbus-Senftenberg, Germany · Oct 2025 – present · Cottbus, Germany</div>
-    <p>Relevant modules: Energy Storage Systems, Grid Integration and Power Electronics, with focus on solar PV, energy yield, and performance analysis.</p>
-    <div>
-      <span class="tag">Energy Storage</span>
-      <span class="tag">Grid Integration</span>
-      <span class="tag">Power Electronics</span>
-      <span class="tag">Solar PV</span>
+  <div class="eyebrow" style="color:var(--accent);font-size:0.85em;letter-spacing:1px;text-transform:uppercase;margin-bottom:12px;">Education</div>
+  <h2 class="edu-head">Two degrees,<br><span>one clear direction</span></h2>
+  <p class="edu-intro">From mechanical engineering fundamentals in India to specialized power systems and renewable energy in Germany.</p>
+  <div class="edu-grid">
+    <div class="edu-card">
+      <div class="icon">🎓</div>
+      <h3>M.Sc. Power Engineering & Renewable Energy</h3>
+      <div class="school">BTU Cottbus-Senftenberg, Germany</div>
+      <div class="when">Oct 2025 to present · Semester 1</div>
+      <p class="desc">Specializing in modern energy systems: PV system design, grid calculation, BESS, smart grid and renewable energy integration.</p>
+      <div class="topics">
+        <span>Solar PV</span>
+        <span>Grid Integration</span>
+        <span>BESS</span>
+        <span>Grid Calculation</span>
+        <span>Smart Grid</span>
+        <span>EMS</span>
+      </div>
     </div>
-  </div>
-  <div class="card">
-    <h3>B.Eng. Mechanical Engineering</h3>
-    <div class="meta">Malnad College of Engineering, Hassan, Karnataka, India · Aug 2020 – Jul 2024</div>
-    <p>Final year project: solar parking lot installation with EV charging and battery storage system (BESS).</p>
+    <div class="edu-card">
+      <div class="icon">🏛️</div>
+      <h3>B.E. Mechanical Engineering</h3>
+      <div class="school">Malnad College of Engineering, Hassan</div>
+      <div class="when">Aug 2020 to Jul 2024 · Grade: 1.82 of 4.0</div>
+      <p class="desc">Strong foundation in engineering fundamentals, thermodynamics and CAD/CAM. Final project: solar parking lot installation with EV charging and BESS.</p>
+      <div class="topics">
+        <span>Thermodynamics</span>
+        <span>CAD/CAM</span>
+        <span>Electrotechnics</span>
+        <span>Project Management</span>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -375,7 +404,7 @@
     dot.setAttribute('cx', x.toFixed(1));
     dot.setAttribute('cy', y.toFixed(1));
     vread.textContent = 'V = ' + v.toFixed(4) + ' pu';
-  }, 11);
+  }, 5);
 })();
 </script>
 </body>

@@ -73,7 +73,26 @@
   .stat-row .stat { background: var(--bg-alt); border: 1px solid var(--border); border-radius: 12px; padding: 16px; text-align: center; }
   .stat-row .stat .big { font-size: 1.6em; font-weight: 700; color: var(--accent); }
   .stat-row .stat .lbl { font-size: 0.75em; color: var(--text-dim); }
+  .avail-grid { display: grid; grid-template-columns: 1.6fr 1fr; gap: 40px; align-items: start; }
+  .avail-contacts { display: flex; flex-direction: column; gap: 16px; }
+  .avail-contacts a { display: flex; align-items: center; gap: 10px; padding: 16px 20px; border-radius: 10px; text-decoration: none; font-size: 1em; border: 1px solid var(--border); background: var(--card); color: var(--text); }
+  .avail-contacts a.primary { background: var(--accent); color: #fff; border-color: var(--accent); font-weight: 600; }
+  .avail-contacts a:hover { border-color: var(--accent); }
+  .about { }
+  .about-grid { display: grid; grid-template-columns: 1.5fr 1fr; gap: 40px; align-items: start; }
+  .about h2.big-head { font-size: 2.4em; line-height: 1.1; margin-bottom: 25px; }
+  .about h2.big-head span { color: var(--accent); }
+  .about p.body { color: var(--text-dim); margin-bottom: 18px; }
+  .about .quote { border-left: 3px solid var(--accent); background: var(--bg-alt); padding: 18px 22px; border-radius: 6px; font-style: italic; color: var(--text); margin: 22px 0; }
+  .info-side { display: flex; flex-direction: column; gap: 14px; }
+  .info-side .info-card { background: var(--bg-alt); border: 1px solid var(--border); border-radius: 12px; padding: 18px 20px; }
+  .info-side .info-card .k { color: var(--accent); font-size: 0.72em; letter-spacing: 1px; text-transform: uppercase; margin-bottom: 6px; }
+  .info-side .info-card .v1 { font-weight: 700; font-size: 1.02em; }
+  .info-side .info-card .v2 { color: var(--text-dim); font-size: 0.9em; }
   @media (max-width: 700px) {
+    .avail-grid { grid-template-columns: 1fr; }
+    .about-grid { grid-template-columns: 1fr; }
+
     .hero-grid { grid-template-columns: 1fr; }
     .stat-row { grid-template-columns: 1fr; }
 
@@ -147,24 +166,67 @@
 </section>
 
 <section class="availability">
-  <div class="eyebrow">OPEN TO OPPORTUNITIES ACROSS GERMANY</div>
+  <div class="eyebrow">AVAILABLE FOR WERKSTUDENT & PRAKTIKANT ROLES</div>
   <h2>Looking for Werkstudent or Praktikant roles</h2>
-  <p class="avail-line">Available immediately · 15 to 20 hours per week during semester · Full-time during semester break · Open to remote and on-site roles across Germany</p>
-  <div class="skill-tags">
-    <span>Grid Integration</span>
-    <span>Grid Planning</span>
-    <span>PV System Design</span>
-    <span>PVsyst & PV SOL</span>
-    <span>Energy Management Systems</span>
-    <span>BESS Planning</span>
-    <span>DSO and TSO</span>
-    <span>Renewable Energy</span>
+  <div class="avail-grid">
+    <div>
+      <p class="avail-line">Available immediately · 15 to 20 hours per week during semester · Full-time during semester break · Open to remote and on-site roles across Germany</p>
+      <div class="skill-tags">
+        <span>Grid Integration</span>
+        <span>Grid Planning</span>
+        <span>PV System Design</span>
+        <span>PVsyst & PV SOL</span>
+        <span>Energy Management Systems</span>
+        <span>BESS Planning</span>
+        <span>DSO and TSO</span>
+        <span>Renewable Energy</span>
+      </div>
+    </div>
+    <div class="avail-contacts">
+      <a class="primary" href="mailto:hrrathangowda@gmail.com">✉ hrrathangowda@gmail.com</a>
+      <a href="https://linkedin.com/in/rathan-hassan-ranganath-76993a289" target="_blank">in LinkedIn</a>
+      <a href="https://github.com/RathanHassanRanganath" target="_blank">⌥ GitHub</a>
+    </div>
   </div>
-  <div class="contact-links">
-    <a href="mailto:hrrathangowda@gmail.com">✉ hrrathangowda@gmail.com</a>
-    <!-- Add your phone number here later, e.g.: <span class="phone">📞 +49 ...</span> -->
-    <a href="https://linkedin.com/in/rathan-hassan-ranganath-76993a289" target="_blank">in LinkedIn</a>
-    <a href="https://github.com/RathanHassanRanganath" target="_blank">⌥ GitHub</a>
+</section>
+
+<section class="about" id="aboutme">
+  <div class="eyebrow" style="color:var(--accent);font-size:0.85em;letter-spacing:1px;text-transform:uppercase;margin-bottom:12px;">About Me</div>
+  <div class="about-grid">
+    <div>
+      <h2 class="big-head">Engineering meets<br><span>the Energiewende</span></h2>
+      <p class="body">I study <strong>Power Engineering and Renewable Energy</strong> at BTU Cottbus-Senftenberg. My focus areas are PV system design, grid integration of renewables, energy management systems and battery storage.</p>
+      <p class="body">Before my Master's, I spent one year as a <strong>Graduate Engineer in PV design, performance and financial analysis at Amplus Solar</strong>, working on a 3.9 MW solar plant — modeling energy yield and revenue, and comparing live plant data against forecasts.</p>
+      <div class="quote">What drives me: Can Germany's grid absorb millions of new EV chargers, solar panels and heat pumps at once? Someone has to calculate whether it holds up — and that's the engineer I want to be.</div>
+      <p class="body">I've worked hands-on with tools like PVsyst, pandapower and OpenDSS, building complete grid and PV studies. My German is <strong>B1-B2 level</strong> and my English is C1.</p>
+    </div>
+    <div class="info-side">
+      <div class="info-card">
+        <div class="k">University</div>
+        <div class="v1">BTU Cottbus-Senftenberg</div>
+        <div class="v2">M.Sc. Power Engineering · Semester 1</div>
+      </div>
+      <div class="info-card">
+        <div class="k">Location</div>
+        <div class="v1">Cottbus, Deutschland</div>
+        <div class="v2">Originally from Hassan, India</div>
+      </div>
+      <div class="info-card">
+        <div class="k">Availability</div>
+        <div class="v1">Immediately · 15 to 20h per week</div>
+        <div class="v2">Full-time during semester break</div>
+      </div>
+      <div class="info-card">
+        <div class="k">Languages</div>
+        <div class="v1">Deutsch B1-B2 · Englisch C1</div>
+        <div class="v2">Kannada / English — India</div>
+      </div>
+      <div class="info-card">
+        <div class="k">Experience</div>
+        <div class="v1">1 year professional engineering</div>
+        <div class="v2">Amplus Solar</div>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -313,7 +375,7 @@
     dot.setAttribute('cx', x.toFixed(1));
     dot.setAttribute('cy', y.toFixed(1));
     vread.textContent = 'V = ' + v.toFixed(4) + ' pu';
-  }, 55);
+  }, 11);
 })();
 </script>
 </body>

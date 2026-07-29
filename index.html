@@ -45,6 +45,8 @@
   .skills-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 20px; }
   footer { text-align: center; padding: 40px; color: var(--text-dim); border-top: 1px solid var(--border); font-size: 0.9em; }
   footer a { color: var(--accent); text-decoration: none; margin: 0 8px; }
+  .hero-badges { margin-top: 30px; display: flex; flex-wrap: wrap; gap: 10px; }
+  .hero-badges .pill { background: var(--card); border: 1px solid var(--border); color: var(--text); padding: 8px 14px; border-radius: 20px; font-size: 0.9em; }
   @media (max-width: 700px) {
     .grid-2 { grid-template-columns: 1fr; }
     header { flex-direction: column; gap: 10px; padding: 15px 20px; }
@@ -75,6 +77,15 @@
   <p class="subtitle">I'm a Master's student in Power Engineering at BTU Cottbus, with a Bachelor's in Mechanical Engineering and one year of professional experience in renewable energy. My interests sit at the intersection of battery storage and combined PV-storage systems — both the technical design side and the economics. I enjoy building models in Excel and Python, and my current coursework in energy storage systems and grid integration keeps me close to real industry problems. I like working independently and in a structured way, turning analysis into recommendations people can actually act on.</p>
   <a href="#projects" class="btn">View My Projects</a>
   <a href="#contact" class="btn outline">Contact Me</a>
+  <div class="hero-badges">
+    <span class="pill">⚡ Grid Integration</span>
+    <span class="pill">☀️ PV System Design</span>
+    <span class="pill">🔋 BESS</span>
+    <span class="pill">📊 EMS</span>
+    <span class="pill">🐍 Python</span>
+    <span class="pill">🇩🇪 Deutsch B1-B2</span>
+    <span class="pill">🇬🇧 Englisch C1</span>
+  </div>
 </section>
 
 <section id="education">
